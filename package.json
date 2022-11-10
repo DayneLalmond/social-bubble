@@ -1,0 +1,24 @@
+{
+  "name": "socialbubble",
+  "version": "1.0.0",
+  "description": "community thoughts bubble",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DayneLalmond/social-bubble.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DayneLalmond/social-bubble/issues"
+  },
+  "homepage": "https://github.com/DayneLalmond/social-bubble#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^6.7.2"
+  }
+}
