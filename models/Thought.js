@@ -31,7 +31,6 @@ const thoughtSchema = new Schema(
     },
 
     {
-        //the data needs to convert to json, including virtuals of model properties
         toJson: {
             virtuals: true,
         },
@@ -45,6 +44,6 @@ thoughtSchema
         return `${this.reactions.length}`;
     });
 
-const Thought = model('thought', userSchema);
+const Thought = model('thought', thoughtSchema);
 
 module.exports = Thought;
