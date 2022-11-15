@@ -5,6 +5,7 @@ module.exports = {
     //should work as a get method through insomnia
     getUsers(req, res) {
         User.find()
+        .populate('thoughts')
 
         .then((users) => res.json(users))
         .catch((err) => res.status(500).json(err));
@@ -24,6 +25,25 @@ module.exports = {
           .then((dbUserData) => res.json(dbUserData))
           .catch((err) => res.status(500).json(err));
       },
+      addThought(req, res) {
+        User.findOneAndUpdate(
+                { _id: req.params.userId },
+                { $addToSet: { thoughts: req.body } },
+                { runValidators: true, new: true }
+          
+            )
+            .then((user) =>
+                !user ?
+                res.status(404).json({
+                    message: 'No user with this id!'
+                }) :
+                res.json(user)
+            )
+            .catch((err) => {
+                console.log(err);
+                res.status(500).json(err);
+            });
+    },
       updateUser(req, res) {
         User.findOneAndUpdate(
             { _id: req.params.userId },

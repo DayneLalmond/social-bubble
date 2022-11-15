@@ -7,7 +7,9 @@ const {
     deleteUser
   } = require('../../controllers/userController.js');
   
-  router.route('/').get(getUsers).post(createUser);
+  router.route('/')
+  .get(getUsers)
+  .post(createUser);
   
   router.route('/:userId')
   .get(getSingleUser)
